@@ -2,8 +2,18 @@ package com.github.pbciesla.recipesRating.recipe;
 
 import lombok.Data;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 @Data
-public class Recipe {
+class Recipe {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    Integer id;
     String name;
     String category;
     String link;
@@ -17,5 +27,7 @@ public class Recipe {
         this.category = category;
         this.link = link;
     }
+
+    Recipe() {}
 
 }
