@@ -9,7 +9,7 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-class Recipe {
+public class Recipe {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -22,12 +22,12 @@ class Recipe {
     int rate;
     String notes;
 
-    Recipe(String name, String category, String link) {
+    public Recipe(String name, String category, String link) {
         this.name = name;
         this.category = category;
         this.link = link;
     }
 
-    Recipe() {}
+    public Recipe() {}
 
 }

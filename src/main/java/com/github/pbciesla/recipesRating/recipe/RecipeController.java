@@ -1,7 +1,11 @@
 package com.github.pbciesla.recipesRating.recipe;
 
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
 
 @RestController
 public class RecipeController {
@@ -15,8 +19,9 @@ public class RecipeController {
     }
 
     @GetMapping(path = "/{recipeId}")
-    public Recipe getRecipeById(@PathVariable Integer recipeId) {
-        return recipeRepository.findById(recipeId).orElse(null);
+    public ResponseEntity<Recipe> getRecipeById(@PathVariable Integer recipeId) {
+        return recipeRepository.findById(recipeId)
+                .map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
     /*
     @GetMapping(path = "/{recipeCategory}")
