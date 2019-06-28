@@ -1,11 +1,9 @@
 package com.github.pbciesla.recipesRating.recipe;
 
-import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.HttpClientErrorException;
 
 @RestController
 public class RecipeController {
@@ -29,6 +27,7 @@ public class RecipeController {
     }*/
 
     @PostMapping(path = "/")
+    @ResponseStatus(HttpStatus.CREATED)
     public Recipe createRecipe(@RequestBody Recipe recipe) {
         return recipeRepository.save(recipe);
     }

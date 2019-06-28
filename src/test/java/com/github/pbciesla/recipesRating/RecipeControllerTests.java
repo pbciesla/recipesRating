@@ -46,9 +46,9 @@ public class RecipeControllerTests {
     }
 
     @Test
-    public void createRecipeReturns200WhenInputIsValid() throws Exception {
+    public void createRecipeReturns201WhenInputIsValid() throws Exception {
         mockMvc.perform(post("/").contentType("application/json").
-                content(objectMapper.writeValueAsString(testRecipe))).andExpect(status().isOk());
+                content(objectMapper.writeValueAsString(testRecipe))).andExpect(status().isCreated());
     }
 
     @Test
