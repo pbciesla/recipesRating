@@ -30,7 +30,6 @@ public class RecipeController {
     @GetMapping(path = "/category/{recipeCategory}")
     public List<Recipe> getRecipeByCategory(@PathVariable String recipeCategory) {
         return recipeRepository.findAllByCategory(recipeCategory);
-
     }
 
     @PostMapping(path = "/")
