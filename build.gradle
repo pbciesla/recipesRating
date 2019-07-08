@@ -1,7 +1,6 @@
 plugins {
 	id 'org.springframework.boot' version '2.1.6.RELEASE'
 	id 'java'
-	id 'war'
 }
 
 apply plugin: 'io.spring.dependency-management'
@@ -16,12 +15,9 @@ configurations {
 	}
 }
 
-
 repositories {
 	mavenCentral()
 }
-
-
 
 dependencies {
 	compileOnly 'org.projectlombok:lombok'
